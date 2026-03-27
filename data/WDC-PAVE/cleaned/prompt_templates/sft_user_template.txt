@@ -1,0 +1,8 @@
+Category: {{ category }}
+
+Attributes:
+{{ attribute_list }}
+
+Title: {{ title }}
+
+Description: {{ description }}

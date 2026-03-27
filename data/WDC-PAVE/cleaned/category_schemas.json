@@ -1,0 +1,49 @@
+{
+  "Computers And Accessories": [
+    "Generation",
+    "Part Number",
+    "Product Type",
+    "Cache",
+    "Processor Type",
+    "Processor Core",
+    "Interface",
+    "Manufacturer",
+    "Capacity",
+    "Ports",
+    "Rotational Speed"
+  ],
+  "Home And Garden": [
+    "Product Type",
+    "Color",
+    "Length",
+    "Width",
+    "Height",
+    "Depth",
+    "Manufacturer Stock Number",
+    "Retail UPC"
+  ],
+  "Office Products": [
+    "Product Type",
+    "Color(s)",
+    "Pack Quantity",
+    "Length",
+    "Width",
+    "Height",
+    "Depth",
+    "Paper Weight",
+    "Manufacturer Stock Number",
+    "Retail UPC"
+  ],
+  "Jewelry": [
+    "Product Type",
+    "Brand",
+    "Model Number"
+  ],
+  "Grocery And Gourmet Food": [
+    "Product Type",
+    "Brand",
+    "Pack Quantity",
+    "Retail UPC",
+    "Size/Weight"
+  ]
+}

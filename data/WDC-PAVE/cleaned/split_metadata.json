@@ -1,0 +1,38 @@
+{
+  "random_state": 42,
+  "split_ratios": {
+    "train": 0.7,
+    "val": 0.1,
+    "test": 0.2
+  },
+  "stratify_by": "category",
+  "total_records": 1420,
+  "split_counts": {
+    "train": 994,
+    "val": 142,
+    "test": 284
+  },
+  "category_counts_per_split": {
+    "train": {
+      "Home And Garden": 250,
+      "Computers And Accessories": 305,
+      "Office Products": 207,
+      "Jewelry": 175,
+      "Grocery And Gourmet Food": 57
+    },
+    "val": {
+      "Home And Garden": 35,
+      "Jewelry": 25,
+      "Office Products": 30,
+      "Computers And Accessories": 44,
+      "Grocery And Gourmet Food": 8
+    },
+    "test": {
+      "Computers And Accessories": 87,
+      "Jewelry": 50,
+      "Office Products": 60,
+      "Home And Garden": 71,
+      "Grocery And Gourmet Food": 16
+    }
+  }
+}

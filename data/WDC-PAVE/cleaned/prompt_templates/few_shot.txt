@@ -1,0 +1,42 @@
+You are an information extraction system.
+
+Task:
+Extract the product attributes from the product title and description.
+
+Category:
+{{ category }}
+
+Allowed attributes:
+{{ attribute_list }}
+
+Rules:
+- Return exactly one valid JSON object.
+- Use exactly the attribute names above as keys.
+- If an attribute is missing or cannot be determined from the text, return null.
+- If multiple values apply to an attribute, return them as a JSON array.
+- Do not add extra keys.
+- Do not explain anything.
+- Use only information from the input text.
+- Do not guess.
+- The word "Null" appearing in the input text is a data artifact, not a product attribute value. Ignore it.
+
+{% for ex in examples %}
+Example {{ loop.index }}:
+
+Input title:
+{{ ex.input_title }}
+
+Input description:
+{{ ex.input_description }}
+
+Output:
+{{ ex.gold_json_str }}
+
+{% endfor %}
+Now extract attributes from this product:
+
+Input title:
+{{ title }}
+
+Input description:
+{{ description }}
