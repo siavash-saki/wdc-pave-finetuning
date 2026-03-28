@@ -23,6 +23,8 @@ def run_variant_b(
 ) -> list[dict]:
     """Run Variant B on the chosen split and save predictions."""
     import outlines
+    from outlines import Generator
+    from outlines.types import JsonSchema
 
     pred_dir = Path(pred_dir)
     pred_dir.mkdir(parents=True, exist_ok=True)
@@ -32,11 +34,11 @@ def run_variant_b(
 
     model, tokenizer = load_model(model_id)
 
-    # Build outlines wrappers
+    # Build outlines wrappers (outlines v1.0+ API)
     outlines_model = outlines.from_transformers(model, tokenizer)
     json_schemas = all_json_schemas()
     generators = {
-        cat: outlines.generate.json(outlines_model, schema)
+        cat: Generator(outlines_model, JsonSchema(schema))
         for cat, schema in json_schemas.items()
     }
     print(f"Built {len(generators)} constrained JSON generators")
@@ -54,17 +56,11 @@ def run_variant_b(
 
         t0 = time.perf_counter()
         try:
-            result = generator(text, max_tokens=512)
+            raw_output = generator(text, max_new_tokens=512)
             latency = time.perf_counter() - t0
 
-            if isinstance(result, dict):
-                pred_json = result
-            elif isinstance(result, str):
-                pred_json = json.loads(result)
-            else:
-                pred_json = dict(result) if hasattr(result, "__dict__") else json.loads(str(result))
+            pred_json = json.loads(raw_output)
             parse_error = None
-            raw_output = json.dumps(pred_json)
         except Exception as e:
             latency = time.perf_counter() - t0
             pred_json = None
